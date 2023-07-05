@@ -25,6 +25,7 @@ body{
     margin: 0%;
     padding: 0%;
     z-index: 0;
+    
 }
 
 p{
@@ -191,9 +192,11 @@ a[class=internal]:after{
       }
  
       iframe{
+        
         width: 100vw;
         height: 60vh;
         z-index: 3;
+        
       }
       iframe.web{
         height: 80vh;
@@ -278,5 +281,11 @@ a[class=internal]:after{
 
         }
       }
+
+.customcur{
+    cursor:url(lr-cursor.png), ew-resize;
+
+    /* cursor: ew-resize; */
+}
     
   
