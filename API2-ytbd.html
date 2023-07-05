@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anais pyrczak</title>
+    <link rel="icon" type="image/x-icon" href="./fonds/photo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="parent">
+        <ul class="img__container"></ul>
+  
+    <template id="image-block">
+          <img class="arenaimgs" src="" alt="" />
+    </template>
+  </div>
+  
+  
+  <!-- are.na api load imgs -->
+  <script>
+  
+  
+  window.addEventListener('DOMContentLoaded', () => {
+  
+    fetch(`https://api.are.na/v2/channels/yettobedefined`, {cache: 'no-store'})
+    .then(response => response.json())
+    .then(data => {
+      renderBlocks(data.contents);
+      runImages();
+    });
+  
+    
+  
+  const renderBlocks = (blocks) => {
+    blocks.forEach((block, index) => {
+      if (block.image && block.image.large.url) {
+        let tmpl = document.getElementById('image-block');
+        let clone = tmpl.content.cloneNode(true);
+        clone.querySelector('img').src = block.image.large.url;
+        document.querySelector('ul').appendChild(clone);
+      }
+    });
+  };
+  
+    const runImages = () => {
+    const ImgContainer = document.querySelector('.img__container');
+  };
+  });  
+  </script>
+
+<script src="script.js" async defer></script>
+
+</body>
+
+</html>
