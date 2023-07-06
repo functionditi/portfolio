@@ -82,6 +82,10 @@ a{
 .margin-top{
     margin-top: 80px;
 }
+
+.margin-smalltop{
+    margin-top: 40px;
+}
 .project{
     display: flex;
     flex-direction: row;
@@ -92,6 +96,23 @@ img.passeport{
     padding-left: 1%;
     
 }
+
+.img_container_split{
+    width: 80%;
+    padding-right: 2em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+}
+
+.proj-img{
+    width: 100%;
+    /* height: 100%; */
+   /* margin: 2em; */
+    /* margin: 1em; */
+    
+}
+
 a:after, [item]:after{
 	content: attr(item);
 	padding-left: 17px;
@@ -137,6 +158,10 @@ a[class=internal]:after{
 }
 .info{
     padding-left: 1%;
+}
+
+.diss-mobile{
+    display:block;
 }
 
   .arenaimgs{
@@ -242,6 +267,25 @@ a[class=internal]:after{
             display: flex;
             padding-left: 1vw;
      }
+
+     .img_container_split{
+        width: 100%;
+        padding: 0rem;
+        padding-left: 0.4em;
+        /* padding-right: 2em;
+        padding-left: 2em;
+        padding-bottom: 2em;
+        padding-top: 1em;  */
+    }
+    
+    .proj-img{
+        width: 100%;
+        /* height: 100%; */
+       /* margin: 2em; */
+        /* margin: 1em; */
+        
+    }
+
         iframe.video{
             height: 100vh;
             width: auto;
@@ -261,6 +305,10 @@ a[class=internal]:after{
         }
         .margin-top{
             margin-top: 80px;
+        }
+
+        .diss-mobile{
+            display:none;
         }
        
         .info{
