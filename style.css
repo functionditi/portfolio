@@ -9,42 +9,47 @@
 }
 
 
-html{
-    background-color:rgb(255, 255, 255);
+html {
+    background-color: rgb(255, 255, 255);
 }
+
 body::-webkit-scrollbar {
     display: none;
-  }
-body{
+}
+
+body {
     font-family: 'ARIAL NARROW';
     font-weight: 400;
     font-style: normal;
     font-size: 1.2em;
-    line-height: 1.2em; 
+    line-height: 1.2em;
     overscroll-behavior-x: none;
     margin: 0%;
     padding: 0%;
     z-index: 0;
-    
+
 }
 
-p{
-    
+p {
+
     color: rgb(133, 133, 133);
     /* mix-blend-mode: exclusion; */
-} 
-a{
+}
+
+a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     mix-blend-mode: exclusion;
 }
-.headline{
+
+.headline {
     color: rgb(255, 255, 255);
     text-decoration: none;
     mix-blend-mode: exclusion;
 }
-.nav{
-    
+
+.nav {
+
     top: 0%;
     padding-top: 0%;
     padding-left: 2%;
@@ -55,9 +60,10 @@ a{
     color: rgb(255, 255, 255);
     z-index: 3;
     overscroll-behavior-x: none;
-   
+
 }
-.language{
+
+.language {
     top: 0%;
     padding-right: 2%;
     padding-top: 0%;
@@ -72,32 +78,37 @@ a{
     text-align: right;
     flex-direction: row;
 }
-.select{
+
+.select {
     text-decoration: none;
 }
-.select:hover{
+
+.select:hover {
     text-decoration: underline solid .1em white;
     text-underline-offset: 3px;
 }
-.margin-top{
+
+.margin-top {
     margin-top: 80px;
 }
 
-.margin-smalltop{
+.margin-smalltop {
     margin-top: 40px;
 }
-.project{
+
+.project {
     display: flex;
     flex-direction: row;
 }
-img.passeport{
+
+img.passeport {
     width: 350px;
-    height:auto;
+    height: auto;
     padding-left: 1%;
-    
+
 }
 
-.img_container_split{
+.img_container_split {
     width: 80%;
     padding-right: 2em;
     padding-left: 2em;
@@ -105,178 +116,193 @@ img.passeport{
     padding-top: 1em;
 }
 
-.proj-img{
+.proj-img {
     width: 100%;
     /* height: 100%; */
-   /* margin: 2em; */
+    /* margin: 2em; */
     /* margin: 1em; */
-    
+
 }
 
-.proj-vid{
+.proj-vid {
     width: 100%;
     /* height: 100%; */
-   /* margin: 2em; */
+    /* margin: 2em; */
     /* margin: 1em; */
-    
+
 }
 
-a:after, [item]:after{
-	content: attr(item);
-	padding-left: 17px;
-	background-repeat: no-repeat;
-	background-size: 12px 12px;
-	width:auto;
+a:after,
+[item]:after {
+    content: attr(item);
+    padding-left: 17px;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    width: auto;
     mix-blend-mode: exclusion;
-	display: inline-block;
+    display: inline-block;
 }
-a[class=external]:after{
-	vertical-align: 0px;
-	padding-top: 0px;
-	background-image: url('./norouest.svg');
-	background-position: bottom 0px left 2px;
+
+a[class=external]:after {
+    vertical-align: 0px;
+    padding-top: 0px;
+    background-image: url('./norouest.svg');
+    background-position: bottom 0px left 2px;
     mix-blend-mode: exclusion;
-	height: 12px;
+    height: 12px;
 }
-a[class=internal]:after{
-	vertical-align: 0px;
-	padding-top: 0px;
-	background-image: url('./sudouest.svg');
-	background-position: bottom 0px left 2px;
+
+a[class=internal]:after {
+    vertical-align: 0px;
+    padding-top: 0px;
+    background-image: url('./sudouest.svg');
+    background-position: bottom 0px left 2px;
     mix-blend-mode: exclusion;
-	height: 12px;
+    height: 12px;
 }
+
 /* a[class=local]:after, [item]:after{
 	vertical-align: 8px;
 	background-image: url('assets/images/arrowDown.svg');
 	background-position: top 4px left;
 	height: 22px;
 } */
-.en{
+.en {
     padding-left: 2%;
     padding-right: 1%;
     width: 50vw;
     /* text-align-last: right; */
 }
-.fr{
+
+.fr {
     padding-left: 1%;
     padding-right: 2%;
     width: 50vw;
     /* text-align-last: right; */
 }
-.info{
+
+.info {
     padding-left: 1%;
 }
 
-.diss-mobile{
-    display:block;
+.diss-mobile {
+    display: block;
 }
 
-  .arenaimgs{
-         width: auto;
-         margin-top: 5vh;
-         height: 90vh;
-         display: flex;
-         padding-left: 1vw;
-  }
-  #parent{
-          margin-block-start: 0em;
-          margin-block-end: 0em;
-          margin-inline-start: 0px;
-          margin-inline-end: 0px;
-          padding-inline-start: 0px;
-          padding-inline-end: 0px;
-          scroll-padding-inline-end: 0px;
-   }
-  ul {
-          list-style-type: none;
-          width: auto;
-          height: fit-content;
-          margin-block-start: 0em;
-          margin-block-end: 0em;
-          margin-inline-start: 0vw;
-          margin-inline-end: 0px;
-          padding-inline-start: 0px;
-          padding-inline-end: 0px;
-          scroll-padding-inline-end: 0px;
-          display: flex;
-        
-          
-      }
-      .img_container{
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        padding-inline-start: 0px;
-        padding-inline-end: 0px;
-        scroll-padding-inline-end: 0px;
-        /* height: 100vh; */
-        display: flex;
-        flex-direction: column;
-      }
-  
-      #image-block {
-        
-        background-color: none;
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center; */
-      }
- 
-      iframe{
-        
+.arenaimgs {
+    width: auto;
+    margin-top: 5vh;
+    height: 90vh;
+    display: flex;
+    padding-left: 1vw;
+}
+
+#parent {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    scroll-padding-inline-end: 0px;
+}
+
+ul {
+    list-style-type: none;
+    width: auto;
+    height: fit-content;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0vw;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    scroll-padding-inline-end: 0px;
+    display: flex;
+
+
+}
+
+.img_container {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    scroll-padding-inline-end: 0px;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+#image-block {
+
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+iframe {
+
+    width: 100vw;
+    height: 60vh;
+    z-index: 3;
+
+}
+
+iframe.web {
+    height: 80vh;
+    margin-left: 1%;
+    width: 78vw;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 780px) {
+    .nav {
         width: 100vw;
-        height: 60vh;
-        z-index: 3;
-        
-      }
-      iframe.web{
-        height: 80vh;
-        margin-left: 1%;
-        width: 78vw;
-        background-color: white;
-        border-radius: 10px;
-      }
+        padding-left: 2%;
+    }
 
-      @media only screen and (max-width: 780px) {
-        .nav{
-            width: 100vw;
-            padding-left: 2%;
-        }
-        .language{
-            
-            display: flex;
-            width: 100vw;
-            margin-right: 0%;
-        }
-        .project{
-           
-            display: block;
-            width: 96vw;
-            margin-right: 0%;
-        }
-        .en{
-            padding-left: 2%;
-            padding-right: 2%;
-            width: 96vw;
-            /* text-align-last: right; */
-        }
-        .fr{
-            padding-left: 2%;
-            padding-right: 2%;
-            width: 96vw;
-            /* text-align-last: right; */
-        }
-        .arenaimgs{
-            width: auto;
-            margin-top: 10vh;
-            height: 90vh;
-            display: flex;
-            padding-left: 1vw;
-     }
+    .language {
 
-     .img_container_split{
+        display: flex;
+        width: 100vw;
+        margin-right: 0%;
+    }
+
+    .project {
+
+        display: block;
+        width: 96vw;
+        margin-right: 0%;
+    }
+
+    .en {
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 96vw;
+        /* text-align-last: right; */
+    }
+
+    .fr {
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 96vw;
+        /* text-align-last: right; */
+    }
+
+    .arenaimgs {
+        width: auto;
+        margin-top: 10vh;
+        height: 90vh;
+        display: flex;
+        padding-left: 1vw;
+    }
+
+    .img_container_split {
         width: 100%;
         padding: 0rem;
         padding-left: 0.4em;
@@ -285,63 +311,77 @@ a[class=internal]:after{
         padding-bottom: 2em;
         padding-top: 1em;  */
     }
-    
-    .proj-img{
+
+    .proj-img {
         width: 100%;
         /* height: 100%; */
-       /* margin: 2em; */
+        /* margin: 2em; */
         /* margin: 1em; */
-        
+
     }
 
-        iframe.video{
-            height: 100vh;
-            width: auto;
-        }
-        iframe{
-            width: 98vw;
-            margin: 1%;
-            height: 40vh;
-            z-index: 3;
-          }
-        iframe.web{
-            height: 80vh;
-            margin-left: 2%;
-            width: 96vw;
-            background-color: white;
-            border-radius: 10px;
-        }
-        .margin-top{
-            margin-top: 80px;
-        }
+    iframe.video {
+        height: 100vh;
+        width: auto;
+    }
 
-        .diss-mobile{
-            display:none;
-        }
-       
-        .info{
-            padding-left: 2%;
-        }
-        img.passeport{
-            width: 250px;
-            height:auto;
-            padding-left: 2%;
-        }
-        .highlight.fr{
-            margin-bottom: 0%;
-            margin-top: 0%;
-        }
-        .highlight.en{
-            margin-bottom: 0%;
-           
+    iframe {
+        width: 98vw;
+        margin: 1%;
+        height: 40vh;
+        z-index: 3;
+    }
 
-        }
-      }
+    iframe.web {
+        height: 80vh;
+        margin-left: 2%;
+        width: 96vw;
+        background-color: white;
+        border-radius: 10px;
+    }
 
-.customcur{
-    cursor:url(lr-cursor.png), ew-resize;
+    .margin-top {
+        margin-top: 80px;
+    }
+
+    .diss-mobile {
+        display: none;
+    }
+
+    .info {
+        padding-left: 2%;
+    }
+
+    img.passeport {
+        width: 250px;
+        height: auto;
+        padding-left: 2%;
+    }
+
+    .highlight.fr {
+        margin-bottom: 0%;
+        margin-top: 0%;
+    }
+
+    .highlight.en {
+        margin-bottom: 0%;
+
+
+    }
+}
+
+.customcur {
+    cursor: url(lr-cursor.png), ew-resize;
 
     /* cursor: ew-resize; */
 }
-    
-  
+
+
+.language {
+    pointer-events: none;
+}
+
+.language a,
+.language .select a {
+    pointer-events: auto;
+}
