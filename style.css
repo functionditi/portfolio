@@ -86,6 +86,7 @@ a {
 .select:hover {
     text-decoration: underline solid .1em white;
     text-underline-offset: 3px;
+    background-color: rgb(0, 0, 255);
 }
 
 .margin-top {
