@@ -256,7 +256,7 @@ iframe.web {
     height: 80vh;
     margin-left: 1%;
     width: 78vw;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 10px;
 }
 
@@ -336,7 +336,7 @@ iframe.web {
         height: 80vh;
         margin-left: 2%;
         width: 96vw;
-        background-color: white;
+        background-color: transparent;
         border-radius: 10px;
     }
 
@@ -384,4 +384,18 @@ iframe.web {
 .language a,
 .language .select a {
     pointer-events: auto;
+}
+
+/* .project-section {
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+} */
+
+.project-section:hover {
+    background-color: rgb(255, 255, 0);
+}
+
+.iframe-api {
+    background-color: rgb(255, 255, 0);
 }
