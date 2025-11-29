@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+const initCarousels = () => {
   const carousels = document.querySelectorAll(".img__container");
 
   carousels.forEach((track) => {
@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
         img.dataset.carouselBound = "true";
         img.addEventListener("load", () => {
           updateButtons();
+          setTimeout(updateButtons, 50);
         });
       });
     };
 
     const updateButtons = () => {
       const maxScroll = track.scrollWidth - track.clientWidth;
-      const hasOverflow = maxScroll > 2;
-      prev.style.display = hasOverflow ? "flex" : "none";
+      prev.style.display = "flex";
       next.style.display = "flex";
 
       const hasScrolled = track.scrollLeft > 4;
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const atEnd = track.scrollLeft >= maxScroll;
 
       prev.disabled = atStart;
-      next.disabled = atEnd;
+      next.disabled = atEnd && maxScroll > 2;
       prev.classList.toggle("is-hidden", atStart);
     };
 
@@ -70,10 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new MutationObserver(() => {
       attachLoadListeners();
       updateButtons();
+      setTimeout(updateButtons, 50);
     });
     observer.observe(track, { childList: true, subtree: true });
 
     attachLoadListeners();
     updateButtons();
+    setTimeout(updateButtons, 50);
   });
-});
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCarousels);
+} else {
+  initCarousels();
+}
