@@ -12,11 +12,15 @@
 
 <body>
 
-  <p class="nav" style="font-size: 1.3em;"><span class="select"><a href="info.html">ADITI NETI</a></span></p>
+  <p class="nav" style="font-size: 1.3em; ">
+    <span class="select" style="background-color: blue;"><a href="info.html"><span class="name-full">ADITI
+          NETI</span><span class="name-short">AN</span></a></span>
+  </p>
 
 
-  <div class="project language">
+  <div class="project language" style="background-color: none;">
     <p class="highlight en" style="font-size: 1.3em;">
+      <span class="select"><a href="index.html">WORK↓</a></span>&nbsp;&nbsp;
       <span class="select"><a href="info.html">INFO</a></span>&nbsp;&nbsp;
       <span class="select"><a href="write.html">WRITING</a></span>&nbsp;&nbsp;
 
@@ -25,9 +29,9 @@
     <p class="highlight en diss-mobile" style="font-size: 1.3em;">
       <!-- <span class="select" ><a class="external" item="" href="mailto:functionditi@gmail.com">FUNCTIONDITI@GMAIL.COM</a></span>&nbsp;&nbsp; -->
       <span class="select"><a class="external" item="" href="https://www.linkedin.com/in/aditi-neti/"
-          target="_blank">LINKEDIN</a></span>&nbsp;&nbsp;
+          target="_blank">LINKEDIN→</a></span>&nbsp;&nbsp;
       <span class="select"><a class="external" item="" href="https://www.instagram.com/functionditi/"
-          target="_blank">INSTAGRAM</a></span>&nbsp;&nbsp;
+          target="_blank">INSTAGRAM→</a></span>&nbsp;&nbsp;
 
     </p>
   </div>
@@ -361,17 +365,15 @@
   </section>
 
 
-  <p class="info margin-top">functionditi@gmail.com <br>
+  <p class="info margin-top" style="color: #0000ff; background-color: none; margin-bottom: 0; padding-bottom: 1rem;">
+    functionditi@gmail.com
+    <br>
     +65 96100952 <br><br>
-
-
     &#169; Aditi Neti 2025
-    <br><br>
   </p>
   <script src="script.js" async defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const YELLOW = "rgb(255, 255, 0)";
       const sections = document.querySelectorAll(".project-section");
 
       sections.forEach((section) => {
@@ -382,7 +384,7 @@
         iframe.style.background = "transparent";
         iframe.style.display = "block"; // avoids inline gap
 
-        const paintIframe = (bg, transparentInside = true) => {
+        const paintIframe = () => {
           try {
             const doc = iframe.contentDocument || iframe.contentWindow.document;
             if (!doc) return;
@@ -391,32 +393,17 @@
             doc.documentElement.style.margin = "0";
             doc.body.style.margin = "0";
 
-            // let parent yellow show through
-            if (transparentInside) {
-              doc.documentElement.style.background = "transparent";
-              doc.body.style.background = "transparent";
-            } else {
-              doc.documentElement.style.background = bg;
-              doc.body.style.background = bg;
-            }
+            doc.documentElement.style.background = "transparent";
+            doc.body.style.background = "transparent";
           } catch (e) {
             // cross-origin iframe: we can’t style inside it
             // (leave quietly)
           }
         };
 
-        section.addEventListener("mouseenter", () => {
-          section.style.background = YELLOW;
-          paintIframe(YELLOW, true); // inside transparent so section’s yellow is visible
-        });
-
-        section.addEventListener("mouseleave", () => {
-          section.style.background = "";
-          paintIframe("", true); // keep inside transparent after hover
-        });
-
         // ensure fixes also apply once the iframe finishes loading
-        iframe.addEventListener("load", () => paintIframe(YELLOW, true));
+        iframe.addEventListener("load", () => paintIframe());
+        paintIframe();
       });
     });
   </script>

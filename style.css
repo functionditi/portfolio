@@ -43,9 +43,10 @@ a {
 }
 
 .headline {
-    color: rgb(255, 255, 255);
+    color: rgb(33, 33, 33);
     text-decoration: none;
-    mix-blend-mode: exclusion;
+    background-color: #ffff00;
+    mix-blend-mode: normal;
 }
 
 .nav {
@@ -63,6 +64,32 @@ a {
 
 }
 
+.nav .name-short {
+    display: none;
+}
+
+.nav .name-full {
+    display: inline;
+}
+
+.nav .select a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-decoration-color: currentColor;
+}
+
+/* .nav .select a {
+    background-color: #ffff00;
+    color: #000;
+    mix-blend-mode: normal;
+}
+
+.nav .select a:hover {
+    background-color: #00ff00;
+    color: #000;
+    text-decoration: underline solid .1em #000;
+} */
+
 .language {
     top: 0%;
     padding-right: 2%;
@@ -79,14 +106,32 @@ a {
     flex-direction: row;
 }
 
+
 .select {
     text-decoration: none;
+
 }
 
 .select:hover {
     text-decoration: underline solid .1em white;
     text-underline-offset: 3px;
     background-color: rgb(0, 0, 255);
+}
+
+.project-section .select {
+    background-color: transparent;
+
+}
+
+.project-section .select a {
+    color: #ffff00;
+    background-color: #0000ff;
+    mix-blend-mode: normal;
+}
+
+.project-section .select a:hover {
+    color: #0000ff;
+    background-color: #ffff00;
 }
 
 .margin-top {
@@ -162,6 +207,11 @@ a[class=internal]:after {
     height: 12px;
 }
 
+.proj1 {
+    background-color: #fff;
+    color: rgb(33, 33, 33);
+}
+
 /* a[class=local]:after, [item]:after{
 	vertical-align: 8px;
 	background-image: url('assets/images/arrowDown.svg');
@@ -206,6 +256,8 @@ a[class=internal]:after {
     padding-inline-start: 0px;
     padding-inline-end: 0px;
     scroll-padding-inline-end: 0px;
+    position: relative;
+    overflow: hidden;
 }
 
 ul {
@@ -220,8 +272,6 @@ ul {
     padding-inline-end: 0px;
     scroll-padding-inline-end: 0px;
     display: flex;
-
-
 }
 
 .img_container {
@@ -250,7 +300,66 @@ iframe {
     width: 100vw;
     height: 60vh;
     z-index: 3;
+    border: none;
+    /* border-bottom: 10px solid #ffff00; */
 
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+}
+
+#parent .img__container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0 56px 0 0;
+    scrollbar-width: none;
+}
+
+#parent .img__container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 0px;
+    background: rgba(0, 0, 255, 0.85);
+    color: #ffff00;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 4;
+    opacity: 0.9;
+}
+
+/* .carousel-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+} */
+
+.carousel-arrow:disabled {
+    opacity: 0.0;
+    cursor: not-allowed;
+    /* transform: translateY(-50%); */
+}
+
+.carousel-arrow.left {
+    left: 12px;
+}
+
+.carousel-arrow.right {
+    right: 12px;
 }
 
 iframe.web {
@@ -281,6 +390,13 @@ iframe.web {
         margin-right: 0%;
     }
 
+    /* ensure the header band spans full width on mobile */
+    .project.language {
+        width: 100vw;
+        margin-right: 0;
+        padding-right: 0;
+    }
+
     .en {
         padding-left: 2%;
         padding-right: 2%;
@@ -293,6 +409,14 @@ iframe.web {
         padding-right: 2%;
         width: 96vw;
         /* text-align-last: right; */
+    }
+
+    .nav .name-full {
+        display: none;
+    }
+
+    .nav .name-short {
+        display: inline;
     }
 
     .arenaimgs {
@@ -339,6 +463,27 @@ iframe.web {
         width: 96vw;
         background-color: transparent;
         border-radius: 10px;
+    }
+
+    #parent .img__container {
+        padding: 0 44px 0 0;
+        gap: 8px;
+    }
+
+    .carousel-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        top: 10%;
+        transform: translateY(10%);
+    }
+
+    .carousel-arrow.left {
+        left: 8px;
+    }
+
+    .carousel-arrow.right {
+        right: 8px;
     }
 
     .margin-top {
@@ -393,10 +538,15 @@ iframe.web {
     transition: background-color 0.3s ease;
 } */
 
+.project-section {
+    /* border-bottom: 3px solid #ffff00; */
+
+}
+
 .project-section:hover {
-    background-color: rgb(255, 255, 0);
+    /* background-color: rgb(255, 255, 0); */
 }
 
 .iframe-api {
-    background-color: rgb(255, 255, 0);
+    /* background-color: rgb(255, 255, 0); */
 }
