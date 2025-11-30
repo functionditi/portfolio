@@ -147,6 +147,38 @@ a {
     flex-direction: row;
 }
 
+.archive-toggle {
+    margin: 2rem 0 1rem;
+    padding: 0.75em 2%;
+    display: block;
+    width: 100%;
+    font-size: 1.2em;
+    color: #0000ff;
+    background-color: #ffff00;
+    text-decoration: underline solid 0.1em currentColor;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.archive-toggle:focus-visible {
+    outline: 2px dashed #0000ff;
+    outline-offset: 4px;
+}
+
+.archive-toggle:hover {
+    color: #ffff00;
+    background-color: #0000ff;
+}
+
+.archive-hidden {
+    display: none;
+}
+
+.archive-archived {
+    background-color: #ffffff;
+}
+
 img.passeport {
     width: 350px;
     height: auto;
@@ -208,7 +240,7 @@ a[class=internal]:after {
 }
 
 .proj1 {
-    background-color: #fff;
+    /* background-color: #fff; */
     color: rgb(33, 33, 33);
 }
 

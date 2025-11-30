@@ -80,8 +80,52 @@ const initCarousels = () => {
   });
 };
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initCarousels);
-} else {
+const initArchiveToggle = () => {
+  const toggle = document.querySelector(".archive-toggle");
+  if (!toggle) return;
+
+  const sections = Array.from(document.querySelectorAll(".project-section"));
+  const archivedSections = sections.slice(5); // hide everything after the fifth project
+
+  if (!archivedSections.length) {
+    toggle.style.display = "none";
+    return;
+  }
+
+  const setHiddenState = (shouldHide) => {
+    archivedSections.forEach((section) =>
+      section.classList.toggle("archive-hidden", shouldHide)
+    );
+    toggle.setAttribute("aria-expanded", String(!shouldHide));
+    toggle.textContent = shouldHide ? "SEE MORE PROJECTS↓" : "SEE LESS PROJECTS [x]";
+  };
+
+  setHiddenState(true);
+  archivedSections.forEach((section) =>
+    section.classList.add("archive-archived")
+  );
+
+  const handleToggle = () => {
+    const currentlyHidden = archivedSections[0].classList.contains("archive-hidden");
+    setHiddenState(!currentlyHidden);
+  };
+
+  toggle.addEventListener("click", handleToggle);
+  toggle.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleToggle();
+    }
+  });
+};
+
+const initPage = () => {
   initCarousels();
+  initArchiveToggle();
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPage);
+} else {
+  initPage();
 }
