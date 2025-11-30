@@ -152,6 +152,7 @@ a {
     padding: 0.75em 2%;
     display: block;
     width: 100%;
+    box-sizing: border-box;
     font-size: 1.2em;
     color: #0000ff;
     background-color: #ffff00;
