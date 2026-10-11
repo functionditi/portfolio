@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditi Neti → Info</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261011">
   <style>
     html {
       background-color: rgb(182, 182, 182);
@@ -45,6 +45,56 @@
       background: transparent;
       color: rgb(255, 255, 255);
     }
+
+    .news-headline {
+      font-size: 0.8rem;
+      color: rgb(70, 70, 70);
+      mix-blend-mode: normal;
+      text-decoration: underline solid .1em currentColor;
+      text-underline-offset: 3px;
+    }
+
+    .news-link a {
+      background-color: rgb(70, 70, 70);
+      color: rgb(255, 255, 255);
+      mix-blend-mode: normal;
+    }
+
+    .news-link a:hover {
+      background-color: rgb(255, 255, 255);
+      color: rgb(70, 70, 70);
+    }
+
+    .info-copy {
+      color: rgb(255, 255, 255);
+      box-sizing: border-box;
+    }
+
+    .info-copy p {
+      color: rgb(255, 255, 255);
+      margin: 0;
+    }
+
+    .info-copy .info-bio {
+      margin-bottom: 2.5em;
+    }
+
+    .info-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 3vw;
+    }
+
+    .info-column {
+      min-width: 0;
+    }
+
+    @media only screen and (max-width: 780px) {
+      .info-columns {
+        grid-template-columns: 1fr;
+        row-gap: 2.5em;
+      }
+    }
   </style>
 </head>
 
@@ -81,50 +131,78 @@
   </div>
 
   <div class="project">
-    <img class="passeport margin-top" src="photo-of-aditi.png" alt="photo passeport" srcset="">
-    <p class="en margin-top">
+    <img class="passeport margin-top" src="assets/photo-of-me/aditipic.JPG" alt="photo passeport" srcset="">
+    <div class="en margin-top info-copy">
+      <p class="info-bio">
+        <span class="proj1">Aditi Neti is a South Asian creative technologist and graphic designer exploring the
+          interconnectedness and synergy between machine, man, and nature. She finds herself most excited by speculative
+          narratives, interactions, and artefacts informed by cultural perspectives. In her practice, she aims to
+          highlight how the complexities of human relationships with the natural world can manifest in alternative and
+          absurd ways through technology.
+        </span>
+      </p>
 
-      <span class="proj1">Aditi Neti is a South Asian creative technologist and graphic designer exploring the
-        interconnectedness and synergy between machine, man, and nature. She finds herself most excited by speculative
-        narratives, interactions, and artefacts informed by cultural perspectives. In her practice, she aims to
-        highlight how the complexities of human relationships with the natural world can manifest in alternative and
-        absurd ways through technology.
-      </span>
+      <div class="info-columns">
+        <div class="info-column">
+          <p>
+            <span class="headline news-headline">WHEREABOUTS</span><br><br>
 
-      <br><br>SINGAPORE<br>
-      <em class="headline">
-        <span class="headline">Singapore Institute of Technology</span>
-      </em>
-      &nbsp;&nbsp;&nbsp;
-      2023-now
-      <br>
-      <em class="headline">
-        <span class="headline">LASALLE College of the Arts</span>
-      </em>
-      &nbsp;&nbsp;&nbsp;
-      2023
+            NEW YORK &nbsp;&nbsp;2026-now<br>
+            <em class="headline">
+              <span class="headline">MFA Design and Technology,<br>Parsons School of Design
+              </span> </em> <br>|<br>
 
-      <br>|<br> TOKYO <br>
-      <em class="headline">
-        <span class="headline">Global Design Initiative
-        </span> </em> &nbsp;&nbsp;&nbsp; 2023 <br>|<br>
-      NEW YORK <br>
-      <em class="headline">
-        <span class="headline">Parsons School of Design
-        </span> </em> &nbsp;&nbsp;&nbsp; 2022 <br>|<br>
-      BENGALURU <br>
-      <em class="headline">
-        <span class="headline">Everything else!
-        </span> </em> &nbsp;&nbsp;&nbsp;
+            SINGAPORE&nbsp;&nbsp;
+            2023-2026 <br>
+            <em class="headline">
+              <span class="headline">Design Researcher, <br> Singapore Institute of Technology</span>
+            </em>
+            <br>|
 
 
-    </p>
+            <br>
+            SINGAPORE&nbsp;&nbsp;2020-2023 <br>
+            <em class="headline">
+              <span class="headline">BA (Hons) Design Communication, <br>LASALLE College of the Arts</span>
+            </em>
 
+
+            <br>|<br>
+            BENGALURU&nbsp; 2002-2020 <br>
+            <em class="headline">
+              <span class="headline">Everything between
+              </span> </em>
+          </p>
+        </div>
+
+        <div class="info-column">
+          <p>
+            <span class="headline news-headline">IN THE NEWS</span><br><br>
+            <em class="headline">GRAZIA Singapore </em>&nbsp;&nbsp; 2026 <br>
+            Interview on cultural hybridity, slow computation, and Of Curves and Hands at Milan Design Week.<br>
+            <span class="select news-link"><a class="external" item=""
+                href="https://grazia.sg/culture/aditi-neti-milan-design-week-art-interview/" target="_blank">read
+                more</a></span><br><br>
+
+            <em class="headline">Harper's BAZAAR Singapore</em>&nbsp;&nbsp; 2026 <br>
+            Interview feature on design, cultural rituals, and creative technology.<br>
+            <span class="select news-link"><a class="external" item=""
+                href="https://www.harpersbazaar.com.sg/lifestyle/aditi-neti-interview" target="_blank">read
+                more</a></span><br><br>
+
+            <em class="headline">Vogue Singapore</em>&nbsp;&nbsp; 2026 <br>
+            Feature on Singaporean design, cultural representation, and Of Curves and Hands.<br>
+            <span class="select news-link"><a class="external" item="" href="https://vogue.sg/singapore-design/"
+                target="_blank">read
+                more</a></span><br><br>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-
   <p class="info margin-top">functionditi@gmail.com <br>
-    
+
 
 
     &#169; Aditi Neti 2025
