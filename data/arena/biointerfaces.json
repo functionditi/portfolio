@@ -1,0 +1,74 @@
+{
+  "contents": [
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/1_com-gif.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/2_biointerfaces-13-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/3_biointerfaces-1-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/4_discarded-leaves-masked-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/5_axidraw-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/6_biointerfaces-3-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/7_biointerfaces-11-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/8_biointerfaces-5-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/9_biointerfaces-9-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/biointerfaces/10_biointerfaces-7-jpg.webp"
+        }
+      }
+    }
+  ]
+}

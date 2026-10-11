@@ -1,0 +1,60 @@
+{
+  "contents": [
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/1_hello-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/2_trees-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/3_object-c-6-1-gif.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/4_inputinput-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/5_object-d-6-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/6_2_a-png-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/7_7_4-png-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/creativecoding/8_18_13-png-png.webp"
+        }
+      }
+    }
+  ]
+}

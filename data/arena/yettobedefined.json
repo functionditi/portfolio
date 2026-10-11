@@ -1,0 +1,46 @@
+{
+  "contents": [
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/1_frontage-2-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/2_frontage-4-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/3_frontage-8-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/4_frontage-3-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/5_frontage-7-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/yettobedefined/6_frontage-6-jpg.webp"
+        }
+      }
+    }
+  ]
+}

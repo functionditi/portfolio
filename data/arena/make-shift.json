@@ -1,0 +1,74 @@
+{
+  "contents": [
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/1_poster-1-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/2_showcase-poster-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/3_screenshot-2023-07-04-at-12-42-26-am-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/4_workshop-6-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/5_workshop-7-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/6_poster-2-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/7_poster-3-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/8_workshop-1-jpg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/9_poster-4-png.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/make-shift/10_workshop-2-jpg.webp"
+        }
+      }
+    }
+  ]
+}

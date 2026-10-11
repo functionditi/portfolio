@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 5502,
+    "liveServer.settings.ignoreFiles": [
+        "**/.DS_Store",
+        ".git/**",
+        "data/**",
+        "assets/homepage-web/**"
+    ]
+}

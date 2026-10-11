@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditi Neti → eyesnoselips</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="blog-project-page">
+
+  <p class="nav" style="font-size: 1.3em;">
+    <span class="select" style="background-color: blue;"><a href="../index.html">ADITI NETI</a></span>
+  </p>
+
+
+  <div class="project language" style="background-color: none;">
+    <p class="highlight en" style="font-size: 1.3em;">
+      <span class="select"><a href="../index.html">WORK</a></span>&nbsp;&nbsp;
+      <span class="select"><a href="../info.html">INFO</a></span>&nbsp;&nbsp;
+      <span class="select"><a href="../write.html">WRITING</a></span>&nbsp;&nbsp;
+      <span class="select"><a href="../blog.html">BLOG↓</a></span>&nbsp;&nbsp;
+
+    </p>
+    <p class="highlight en diss-mobile" style="font-size: 1.3em;">
+      <!-- <span class="select" ><a class="external" item="" href="mailto:functionditi@gmail.com">FUNCTIONDITI@GMAIL.COM</a></span>&nbsp;&nbsp; -->
+      <span class="select"><a class="external" item="" href="https://www.linkedin.com/in/aditi-neti/"
+          target="_blank">LINKEDIN→</a></span>&nbsp;&nbsp;
+      <span class="select"><a class="external" item="" href="https://www.instagram.com/functionditi/"
+          target="_blank">INSTAGRAM→</a></span>&nbsp;&nbsp;
+
+    </p>
+  </div>
+
+
+  <div class="project margin-top">
+    <p class="en">
+      <em class="headline">
+        <span class="headline">eyesnoselips</span> </em>
+      <span class="proj1">
+        is a sketch for building a system of parameters (variables) which convey a range of emotion and feeling.
+      </span>
+      <br><br>
+      <em class="headline">
+        camera,
+      </em>
+      <br>
+      <em class="headline">
+        facial features,
+      </em>
+      <br>
+      <em class="headline">
+        computational portraiture
+      </em>
+      <br>
+      <br>
+      CC2026
+      <br>
+      2026
+
+    </p>
+  </div>
+
+  <div class="project margin-smalltop">
+    <p class="en">
+      <em class="headline">
+        <span class="headline">INTENT</span> </em>
+      <span class="proj1">
+        I love this assignment. After it was assigned yesterday, I went to Target and looked
+        at my own face in the self-checkout security screens. I hate getting caught off guard like that, but it also
+        made me realise how fun it would be to use our own
+        faces in its maximum and minimum configuration. So, i wanna figure out how to use a camera to isolate eyes nose
+        and lips to create a face!
+      </span>
+    </p>
+  </div>
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">a quick mockup</span> </em>
+      <span class="proj1">
+        <br>
+        I want this to be creepy. Before I started, mocked up what I wanna achieve on Adobe Illustrator first.
+        <br><br>
+      </span>
+      <img class="proj-img" src="../assets/cc2026/eyesnoselips/facemockup.png" alt="Adobe Illustrator face mockup">
+      <span class="proj1">
+        <br><br>
+        Initially if I look at the objects in the ml5 array that point to left eye and right eye, I can try to calculate
+        which one has the least x, the least y, the most x and the most y and calculate that!
+      </span>
+    </div>
+  </div>
+
+
+
+  <div class="project margin-smalltop">
+    <p class="en">
+      <em class="headline">
+        <span class="headline">THE PLAN!</span> </em>
+      <span class="proj1">
+        <br> Before I start, I'm trying to plan out what I would need to get this done.
+        <br><br>
+        1. get camera input working on p5
+        <br>
+        2. detect or isolate eyes, nose and lips (maybe using ml5, which is what i'm familiar with, but I've also heard
+        great things about mediapipe)
+        <br>
+        3. map each feature to variables (size of eyes? nose lips)?
+        <br>
+        4. use those variables to rebuild a face
+      </span>
+    </p>
+  </div>
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">switching to html/css/js mode</span> </em>
+      <span class="proj1">
+        <br>
+        On OpenProcessing, I needed to shift from just p5 mode to HTML/CSS/JS mode.
+        <br><br>
+      </span>
+      <img class="proj-img" src="../assets/cc2026/eyesnoselips/switchingtohtmll.png"
+        alt="OpenProcessing HTML CSS JS mode">
+    </div>
+  </div>
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">1. get camera input working on p5</span> </em>
+      <span class="proj1">
+        <br>
+        A quick google search is leading me to <a class="external" item=""
+          href="https://p5js.org/reference/p5/createCapture/"
+          target="_blank">https://p5js.org/reference/p5/createCapture/</a>so i implemented that in my code!
+        <br><br>
+      </span>
+      <pre class="code-sample"><code>let capture;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  capture = createCapture(VIDEO);
+  background(0);
+}
+
+function draw() {
+  //circle(mouseX, mouseY, 20);
+  image(capture, 0, 0, width, width * capture.height / capture.width);
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">1. get camera input working on p5</span> </em>
+      <span class="proj1">
+        <br>
+        A quick google search is leading me to <a class="external" item=""
+          href="https://p5js.org/reference/p5/createCapture/"
+          target="_blank">https://p5js.org/reference/p5/createCapture/</a>so i implemented that in my code!
+        <br><br>
+      </span>
+      <pre class="code-sample"><code>let capture;
+let capture;
+let faceMesh;
+let options = { maxFaces: 1, refineLandmarks: false, flipped: false };
+let faces = [];
+
+
+
+async function setup() {
+	createCanvas(windowWidth, windowHeight);
+	capture = createCapture(VIDEO);
+	faceMesh = await ml5.faceMesh(options);
+	background(0);
+	capture.hide();
+	  faceMesh.detectStart(capture, gotFaces);
+
+
+}
+
+function draw() {
+	//circle(mouseX, mouseY, 20);
+	 image(capture, 0, 0, width, width * capture.height / capture.width);
+	//console.log("ml5 version:", ml5.version);
+	for (let i = 0; i < faces.length; i++) {
+    let face = faces[i];
+    for (let j = 0; j < face.keypoints.length; j++) {
+      let keypoint = face.keypoints[j];
+      fill(0, 255, 0);
+      noStroke();
+      circle(keypoint.x, keypoint.y, 5);
+    }
+  }
+
+}
+
+function gotFaces(results) {
+  
+// Save the output to the faces variable
+
+  faces = results;
+}</code></pre>
+    </div>
+  </div>
+
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">isolating the eye coordinates</span> </em>
+      <span class="proj1">
+        <br>
+        After looking through the face object, I realised I could isolate the left eye coordinates with
+        <code>console.log(face.leftEye);</code> and the right eye coordinates with
+        <code>console.log(face.RIGHTEye);</code>.
+        I didn't want to just copy-paste code, so I tried to get familiar with the syntax and understand what the values
+        meant.
+        I used the <a class="external" item=""
+          href="https://developers.google.com/android/reference/com/google/mlkit/vision/facemesh/FaceMesh"
+          target="_blank">Google ML Kit FaceMesh reference</a> too.
+        I also realised ml5 has a bounding box feature after looking through the <a class="external" item=""
+          href="https://docs.ml5js.org/#/reference/overview" target="_blank">ml5 reference</a>.
+        <br><br>
+      </span>
+      <pre class="code-sample"><code>console.log(face.leftEye);
+console.log(face.RIGHTEye);</code></pre>
+    </div>
+  </div>
+
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">1. get camera input working on p5</span> </em>
+      <span class="proj1">
+        <br>
+        So now my issue is how do i isolate just the eyes and nose and mouth?
+        <br><br>
+        Initially if I look at the objects in the ml5 array that point to left eye and right eye, I can try to calculate
+        which one has the least x, the least y, the most x and the most y and calculate that!
+      </span>
+    </div>
+  </div>
+
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">getting eyes, nose, lips to show up</span> </em>
+      <span class="proj1">
+        <br>
+        I got it to a point using the ml5 reference library where I can use FaceMesh to find the face oval, eyes, and
+        lips, then draw bounding boxes around those features.
+        I am giving up on the nose for now because I couldn't find a bounding box for it. Nothing worked: no nose, no
+        nosetip, nothing.
+        <br><br>
+      </span>
+      <img class="proj-img" src="../assets/cc2026/eyesnoselips/hehe1.png"
+        alt="FaceMesh bounding boxes around facial features">
+      <span class="proj1">
+        <br><br>
+      </span>
+      <pre class="code-sample"><code>let capture;
+let faceMesh;
+let options = { maxFaces: 2, refineLandmarks: false, flipped: false };
+let faces = [];
+
+async function setup() {
+  createCanvas(600, 600);
+  capture = createCapture(VIDEO);
+  faceMesh = await ml5.faceMesh(options);
+  background(0);
+  capture.hide();
+  faceMesh.detectStart(capture, gotFaces);
+}
+
+function draw() {
+  //circle(mouseX, mouseY, 20);
+  background(0);
+  image(capture, 0, 0);
+  //console.log("ml5 version:", ml5.version);
+  for (let i = 0; i < faces.length; i++) {
+    let currentFace = faces[i];
+    // for (let j = 0; j < currentFace.leftEye.keypoints.length; j++) {
+    //   let keypoint = currentFace.leftEye.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+
+    // for (let j = 0; j < currentFace.rightEye.keypoints.length; j++) {
+    //   let keypoint = currentFace.rightEye.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+
+    push();
+    noFill();
+    stroke(255);
+    rect(
+      currentFace.faceOval.x,
+      currentFace.faceOval.y,
+      currentFace.faceOval.width,
+      currentFace.faceOval.height
+    );
+    pop();
+
+    rect(currentFace.lips.x, currentFace.lips.y, currentFace.lips.width, currentFace.lips.height);
+    rect(currentFace.leftEye.x, currentFace.leftEye.y, currentFace.leftEye.width, currentFace.leftEye.height);
+    rect(currentFace.rightEye.x, currentFace.rightEye.y, currentFace.rightEye.width, currentFace.rightEye.height);
+    //rect(currentFace.nose.x, currentFace.nose.y, currentFace.nose.width, currentFace.nose.height);
+
+    // for (let j = 0; j < currentFace.upperLipTop.keypoints.length; j++) {
+    //   let keypoint = currentFace.upperLipTop.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+  }
+}
+
+function gotFaces(results) {
+  // Save the output to the faces variable
+  faces = results;
+}</code></pre>
+    </div>
+  </div>
+
+
+  <div class="project margin-smalltop">
+    <div class="en">
+      <em class="headline">
+        <span class="headline">masking out the rest of the face</span> </em>
+      <span class="proj1">
+        <br>
+        I was struggling with this for a while because my full face was drawing, but I realised
+        <code>mask.background(0)</code> was the issue.
+        <br><br>
+      </span>
+      <pre class="code-sample"><code>let capture;
+let faceMesh;
+let options = { maxFaces: 2, refineLandmarks: false, flipped: false };
+let faces = [];
+let mask;
+
+async function setup() {
+  createCanvas(600, 600);
+  capture = createCapture(VIDEO);
+  capture.size(600, 600);
+  capture.hide();
+  faceMesh = await ml5.faceMesh(options);
+  background(0);
+  faceMesh.detectStart(capture, gotFaces);
+
+  mask = createGraphics(600, 600);
+  // imageMode(CENTER);
+}
+
+function draw() {
+  //mask.background(0);
+  //circle(mouseX, mouseY, 20);
+  background(0);
+  //image(capture, 0, 0);
+
+  mask.fill(255);
+  mask.noStroke();
+
+  //detectEyesNoseLips
+  //console.log("ml5 version:", ml5.version);
+  for (let i = 0; i < faces.length; i++) {
+    let currentFace = faces[i];
+    // for (let j = 0; j < currentFace.leftEye.keypoints.length; j++) {
+    //   let keypoint = currentFace.leftEye.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+
+    // for (let j = 0; j < currentFace.rightEye.keypoints.length; j++) {
+    //   let keypoint = currentFace.rightEye.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+
+    // mask.push();
+    // mask.noFill();
+    // mask.stroke(255);
+    // mask.rect(currentFace.faceOval.x, currentFace.faceOval.y, currentFace.faceOval.width, currentFace.faceOval.height);
+    // mask.pop();
+
+    mask.rect(currentFace.lips.x, currentFace.lips.y, currentFace.lips.width, currentFace.lips.height);
+    mask.rect(currentFace.leftEye.x, currentFace.leftEye.y, currentFace.leftEye.width, currentFace.leftEye.height);
+    mask.rect(currentFace.rightEye.x, currentFace.rightEye.y, currentFace.rightEye.width, currentFace.rightEye.height);
+    //rect(currentFace.nose.x, currentFace.nose.y, currentFace.nose.width, currentFace.nose.height);
+
+    // for (let j = 0; j < currentFace.upperLipTop.keypoints.length; j++) {
+    //   let keypoint = currentFace.upperLipTop.keypoints[j];
+    //   fill(0, 255, 0);
+    //   noStroke();
+    //   circle(keypoint.x, keypoint.y, 5);
+    // }
+  }
+
+  let frame = capture.get();
+  frame.mask(mask);
+  image(frame, 0, 0);
+
+  //capture.mask(mask);
+}
+
+function gotFaces(results) {
+  // Save the output to the faces variable
+  faces = results;
+}</code></pre>
+    </div>
+  </div>
+
+
+
+
+  <p class="info margin-top">functionditi@gmail.com <br>
+
+
+
+    &#169; Aditi Neti 2026
+    <br><br>
+  </p>
+
+  <script src="../script.js" async defer></script>
+</body>
+
+</html>

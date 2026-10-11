@@ -147,6 +147,33 @@ a {
     flex-direction: row;
 }
 
+.intro-section {
+    min-height: 620px;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding: 0 2%;
+}
+
+.intro-text {
+    width: 66vw;
+    max-width: 1120px;
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 2.65em;
+    line-height: 1.05em;
+    letter-spacing: 0;
+}
+
+@media only screen and (min-width: 781px) {
+    body.blog-project-page .project:not(.language) .en {
+        margin-left: calc(50vw - 22em);
+        width: 46vw;
+        padding-left: 0;
+        padding-right: 2%;
+    }
+}
+
 .archive-toggle {
     margin: 2rem 0 1rem;
     padding: 0.75em 2%;
@@ -245,6 +272,20 @@ a[class=internal]:after {
     color: rgb(33, 33, 33);
 }
 
+.code-sample {
+    margin: 1em 0 0;
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    color: rgb(33, 33, 33);
+    background-color: #e6e6e6;
+    font-family: monospace;
+    font-size: 0.85em;
+    line-height: 1.35em;
+}
+
 /* a[class=local]:after, [item]:after{
 	vertical-align: 8px;
 	background-image: url('assets/images/arrowDown.svg');
@@ -275,13 +316,15 @@ a[class=internal]:after {
 
 .arenaimgs {
     width: auto;
-    margin-top: 5vh;
-    height: 90vh;
+    height: 45vh;
+    max-height: 100%;
     display: flex;
+    object-fit: contain;
     padding-left: 1vw;
 }
 
-#parent {
+#parent,
+.homepage-carousel {
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-inline-start: 0px;
@@ -291,6 +334,11 @@ a[class=internal]:after {
     scroll-padding-inline-end: 0px;
     position: relative;
     overflow: hidden;
+}
+
+.homepage-carousel {
+    height: 50vh;
+    width: 100vw;
 }
 
 ul {
@@ -341,16 +389,26 @@ iframe {
 
 }
 
-#parent .img__container {
+#parent .img__container,
+.homepage-carousel .img__container {
     display: flex;
+    align-items: center;
     gap: 12px;
+    height: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 0 56px 0 0;
     scrollbar-width: none;
 }
 
-#parent .img__container::-webkit-scrollbar {
+#parent .img__container li,
+.homepage-carousel .img__container li {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+#parent .img__container::-webkit-scrollbar,
+.homepage-carousel .img__container::-webkit-scrollbar {
     display: none;
 }
 
@@ -432,6 +490,18 @@ iframe.web {
         margin-right: 0%;
     }
 
+    .intro-section {
+        min-height: 520px;
+        padding: 0 2%;
+    }
+
+    .intro-text {
+        width: 96vw;
+        max-width: none;
+        font-size: 2em;
+        line-height: 1.08em;
+    }
+
     /* ensure the header band spans full width on mobile */
     .project.language {
         width: 100vw;
@@ -463,9 +533,10 @@ iframe.web {
 
     .arenaimgs {
         width: auto;
-        margin-top: 10vh;
-        height: 90vh;
+        height: 32vh;
+        max-height: 100%;
         display: flex;
+        object-fit: contain;
         padding-left: 1vw;
     }
 
@@ -499,6 +570,12 @@ iframe.web {
         z-index: 3;
     }
 
+    .homepage-carousel {
+        width: 98vw;
+        height: 36vh;
+        margin: 1%;
+    }
+
     iframe.web {
         height: 80vh;
         margin-left: 2%;
@@ -507,7 +584,8 @@ iframe.web {
         border-radius: 10px;
     }
 
-    #parent .img__container {
+    #parent .img__container,
+    .homepage-carousel .img__container {
         padding: 0 44px 0 0;
         gap: 8px;
     }

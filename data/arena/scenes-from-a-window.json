@@ -1,0 +1,46 @@
+{
+  "contents": [
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/1_project-1-1-jpeg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/2_project-1-2-jpeg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/3_can-jpeg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/4_nz-jpeg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/5_jap-jpeg.webp"
+        }
+      }
+    },
+    {
+      "image": {
+        "large": {
+          "url": "./assets/homepage-web/scenes-from-a-window/6_screenshot-2022-02-15-at-8-35-23-pm-1-png.webp"
+        }
+      }
+    }
+  ]
+}
