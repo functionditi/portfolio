@@ -653,6 +653,180 @@ iframe.web {
     pointer-events: auto;
 }
 
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media only screen and (max-width: 780px) {
+    html.mobile-menu-open,
+    html.mobile-menu-open body {
+        overflow: hidden;
+    }
+
+    html.mobile-menu-open .nav {
+        mix-blend-mode: normal;
+        z-index: 7;
+    }
+
+    .mobile-menu-toggle {
+        align-items: center;
+        background-color: transparent;
+        border: 0;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        height: 46px;
+        justify-content: center;
+        mix-blend-mode: normal;
+        padding: 0;
+        position: fixed;
+        right: 2%;
+        top: 0.7rem;
+        width: 46px;
+        z-index: 8;
+    }
+
+    .mobile-menu-toggle:hover {
+        background-color: transparent;
+        color: rgb(0, 0, 0);
+    }
+
+    body.writing-page .mobile-menu-toggle {
+        color: rgb(255, 255, 255);
+    }
+
+    html.mobile-menu-open body.writing-page .mobile-menu-toggle {
+        color: rgb(0, 0, 0);
+    }
+
+    .mobile-menu-toggle .menu-bar {
+        background-color: currentColor;
+        display: block;
+        height: 2px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        width: 38px;
+    }
+
+    .has-mobile-menu .language {
+        background-color: rgb(255, 255, 255);
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.6rem, 5.8vh, 2.65rem);
+        justify-content: flex-start;
+        left: 0;
+        margin: 0;
+        mix-blend-mode: normal;
+        opacity: 0;
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        padding: clamp(12rem, 39dvh, 20rem) 2% 1.1rem;
+        pointer-events: none;
+        text-align: left;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        visibility: hidden;
+        width: 100vw;
+        z-index: 6;
+    }
+
+    .has-mobile-menu.mobile-menu-open .language {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .has-mobile-menu .language p {
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.35rem, 1.2vh, 0.55rem);
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        width: 92vw;
+    }
+
+    .has-mobile-menu .language .diss-mobile {
+        display: flex;
+    }
+
+    .has-mobile-menu .language .select {
+        background-color: transparent;
+        border-bottom: 3px solid rgb(0, 0, 0);
+        display: block;
+        margin: 0;
+        padding: 0 0 0.12em;
+        text-decoration: none;
+        width: min(76vw, 295px);
+    }
+
+    .has-mobile-menu .language .select a {
+        background: transparent;
+        color: rgb(0, 0, 0);
+        display: inline-block;
+        font-size: 0;
+        letter-spacing: 0;
+        line-height: 0.92;
+        mix-blend-mode: normal;
+        text-decoration: none;
+    }
+
+    .has-mobile-menu .language .select:hover {
+        background-color: transparent;
+    }
+
+    .has-mobile-menu .language .select a::after {
+        background-image: none;
+        content: attr(data-menu-arrow);
+        display: inline;
+        font-size: clamp(1.9rem, 8.7vw, 2.9rem);
+        height: auto;
+        line-height: 0.96;
+        padding-left: 0;
+        vertical-align: baseline;
+        width: auto;
+    }
+
+    .has-mobile-menu .language .select a::before {
+        content: attr(data-menu-label);
+        font-size: clamp(1.9rem, 8.7vw, 2.9rem);
+        line-height: 0.96;
+    }
+
+    .has-mobile-menu .language .mobile-menu-active a::before {
+        background-color: #ffff00;
+        color: #0000ff;
+    }
+
+    .has-mobile-menu .language .mobile-menu-instagram {
+        order: 1;
+    }
+
+    .has-mobile-menu .language .mobile-menu-linkedin {
+        margin-top: clamp(1.05rem, 3.2vh, 1.6rem);
+        order: 2;
+    }
+
+    .has-mobile-menu.mobile-menu-open .mobile-menu-toggle .menu-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .has-mobile-menu.mobile-menu-open .mobile-menu-toggle .menu-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .has-mobile-menu.mobile-menu-open .mobile-menu-toggle .menu-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
 /* .project-section {
     display: flex;
     flex-direction: column;

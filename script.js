@@ -119,9 +119,76 @@ const initArchiveToggle = () => {
   });
 };
 
+const initMobileMenu = () => {
+  const menu = document.querySelector(".project.language");
+  if (!menu || document.querySelector(".mobile-menu-toggle")) return;
+
+  if (!menu.id) {
+    menu.id = "site-menu";
+  }
+
+  const menuGroups = menu.querySelectorAll("p");
+  menuGroups[0]?.classList.add("mobile-menu-primary");
+  menuGroups[1]?.classList.add("mobile-menu-social");
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "mobile-menu-toggle";
+  button.setAttribute("aria-controls", menu.id);
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-label", "Open menu");
+  button.innerHTML = '<span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span>';
+
+  const setOpen = (isOpen) => {
+    document.documentElement.classList.toggle("mobile-menu-open", isOpen);
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  };
+
+  document.documentElement.classList.add("has-mobile-menu");
+  document.body.appendChild(button);
+
+  menu.querySelectorAll(".select").forEach((item) => {
+    const link = item.querySelector("a");
+    if (!link) return;
+
+    const rawLabel = link.textContent.trim();
+    const label = rawLabel.replace(/[↓→]+$/g, "");
+    link.dataset.menuLabel = label;
+    link.dataset.menuArrow = "→";
+
+    if (rawLabel.includes("↓")) {
+      item.classList.add("mobile-menu-active");
+    }
+
+    if (link.href.includes("instagram.com")) {
+      item.classList.add("mobile-menu-instagram");
+    }
+
+    if (link.href.includes("linkedin.com")) {
+      item.classList.add("mobile-menu-linkedin");
+    }
+  });
+
+  button.addEventListener("click", () => {
+    setOpen(!document.documentElement.classList.contains("mobile-menu-open"));
+  });
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  });
+};
+
 const initPage = () => {
   initCarousels();
   initArchiveToggle();
+  initMobileMenu();
 };
 
 if (document.readyState === "loading") {
