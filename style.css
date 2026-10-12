@@ -148,7 +148,7 @@ a {
 }
 
 .intro-section {
-    min-height: 620px;
+    min-height: 500px;
     display: flex;
     align-items: flex-end;
     box-sizing: border-box;
@@ -156,13 +156,94 @@ a {
 }
 
 .intro-text {
-    width: 66vw;
-    max-width: 1120px;
+    width: 72vw;
+    max-width: 1160px;
     margin: 0;
     color: rgb(0, 0, 0);
     font-size: 2.65em;
     line-height: 1.05em;
     letter-spacing: 0;
+}
+
+.project-filter {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 195px 0 0;
+    padding: 0 2%;
+    overflow-x: auto;
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    line-height: 1em;
+    scrollbar-width: none;
+    white-space: nowrap;
+}
+
+.project-filter::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-label {
+    flex: 0 0 auto;
+    color: rgb(0, 0, 0);
+}
+
+.filter-options {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25em;
+    flex: 0 0 auto;
+}
+
+.filter-chip {
+    appearance: none;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    background-color: rgb(183, 183, 183);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    min-height: 1.1em;
+    padding: 0 0.32em;
+    text-align: left;
+}
+
+.filter-chip.is-active {
+    background-color: #ffff00;
+    color: rgb(0, 0, 0);
+}
+
+.filter-chip.is-active:not([data-filter="all"])::after {
+    content: "x";
+    font-size: 0.68em;
+    line-height: 1;
+    padding-left: 0.38em;
+    transform: translateY(-0.08em);
+}
+
+.filter-chip:hover {
+    background-color: #0000ff;
+    color: #ffff00;
+}
+
+.filter-chip:focus-visible {
+    outline: 2px solid #00ff00;
+    outline-offset: -2px;
+}
+
+.project-filter+.project-section .margin-top {
+    margin-top: 24px;
+}
+
+.project-section.filter-hidden {
+    display: none;
 }
 
 @media only screen and (min-width: 781px) {
@@ -501,6 +582,34 @@ iframe.web {
         max-width: none;
         font-size: 2em;
         line-height: 1.08em;
+    }
+
+    .project-filter {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.45em;
+        margin-top: 60px;
+        overflow-x: visible;
+        padding: 0 2%;
+        font-size: 1.05em;
+        white-space: normal;
+    }
+
+    .filter-options {
+        flex: 1 1 0;
+        flex-wrap: wrap;
+        gap: 0.22em;
+        min-width: 0;
+        row-gap: 0.28em;
+    }
+
+    .filter-chip {
+        max-width: 100%;
+        white-space: nowrap;
+    }
+
+    .project-filter+.project-section .margin-top {
+        margin-top: 18px;
     }
 
     /* ensure the header band spans full width on mobile */

@@ -82,14 +82,14 @@ const initCarousels = () => {
 
 const initArchiveToggle = () => {
   const toggle = document.querySelector(".archive-toggle");
-  if (!toggle) return;
+  if (!toggle) return null;
 
   const sections = Array.from(document.querySelectorAll(".project-section"));
   const archivedSections = sections.slice(5); // hide everything after the fifth project
 
   if (!archivedSections.length) {
     toggle.style.display = "none";
-    return;
+    return null;
   }
 
   const setHiddenState = (shouldHide) => {
@@ -116,6 +116,116 @@ const initArchiveToggle = () => {
       event.preventDefault();
       handleToggle();
     }
+  });
+
+  return {
+    toggle,
+    archivedSections,
+    setHiddenState,
+    isExpanded: () => toggle.getAttribute("aria-expanded") === "true",
+  };
+};
+
+const initProjectFilter = (archiveController) => {
+  const filter = document.querySelector(".project-filter");
+  if (!filter) return;
+
+  const filterOptions = filter.querySelector(".filter-options");
+  const buttons = Array.from(filter.querySelectorAll(".filter-chip"));
+  const sections = Array.from(document.querySelectorAll(".project-section"));
+
+  if (!filterOptions || !buttons.length || !sections.length) return;
+
+  const getTags = (section) =>
+    (section.dataset.filterTags || "").split(/\s+/).filter(Boolean);
+
+  const selectedFilters = new Set();
+  const allButton = buttons.find((button) => button.dataset.filter === "all");
+  const tagButtons = buttons.filter((button) => button.dataset.filter !== "all");
+  const originalButtonOrder = buttons.map((button) => button.dataset.filter || "");
+
+  const sortByOriginalOrder = (firstButton, secondButton) =>
+    originalButtonOrder.indexOf(firstButton.dataset.filter || "") -
+    originalButtonOrder.indexOf(secondButton.dataset.filter || "");
+
+  const reorderButtons = () => {
+    const selectedButtons = Array.from(selectedFilters)
+      .map((filterValue) =>
+        tagButtons.find((button) => button.dataset.filter === filterValue)
+      )
+      .filter(Boolean);
+    const inactiveButtons = tagButtons
+      .filter((button) => !selectedFilters.has(button.dataset.filter || ""))
+      .sort(sortByOriginalOrder);
+
+    if (selectedButtons.length) {
+      filterOptions.append(
+        ...selectedButtons,
+        ...(allButton ? [allButton] : []),
+        ...inactiveButtons
+      );
+    } else if (allButton) {
+      filterOptions.append(allButton, ...inactiveButtons);
+    }
+  };
+
+  const applyFilter = () => {
+    const isFiltering = selectedFilters.size > 0;
+
+    reorderButtons();
+
+    buttons.forEach((button) => {
+      const filterValue = button.dataset.filter || "";
+      const isActive =
+        filterValue === "all"
+          ? !isFiltering
+          : selectedFilters.has(filterValue);
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    sections.forEach((section) => {
+      const sectionTags = getTags(section);
+      const matches =
+        !isFiltering ||
+        sectionTags.some((tag) => selectedFilters.has(tag));
+
+      section.classList.toggle("filter-hidden", !matches);
+
+      if (isFiltering && matches) {
+        section.classList.remove("archive-hidden");
+      }
+    });
+
+    if (archiveController?.toggle) {
+      archiveController.toggle.style.display = isFiltering ? "none" : "";
+
+      if (!isFiltering) {
+        archiveController.setHiddenState(!archiveController.isExpanded());
+      }
+    }
+
+    window.dispatchEvent(new Event("resize"));
+  };
+
+  allButton?.addEventListener("click", () => {
+    selectedFilters.clear();
+    applyFilter();
+  });
+
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filterValue = button.dataset.filter;
+      if (!filterValue) return;
+
+      if (selectedFilters.has(filterValue)) {
+        selectedFilters.delete(filterValue);
+      } else {
+        selectedFilters.add(filterValue);
+      }
+
+      applyFilter();
+    });
   });
 };
 
@@ -187,7 +297,8 @@ const initMobileMenu = () => {
 
 const initPage = () => {
   initCarousels();
-  initArchiveToggle();
+  const archiveController = initArchiveToggle();
+  initProjectFilter(archiveController);
   initMobileMenu();
 };
 
