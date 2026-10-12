@@ -85,7 +85,9 @@ const initArchiveToggle = () => {
   if (!toggle) return null;
 
   const sections = Array.from(document.querySelectorAll(".project-section"));
-  const archivedSections = sections.slice(5); // hide everything after the fifth project
+  const archivedSections = sections.filter((section) =>
+    toggle.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING
+  );
 
   if (!archivedSections.length) {
     toggle.style.display = "none";
