@@ -148,11 +148,84 @@ a {
 }
 
 .intro-section {
-    min-height: 500px;
+    min-height: 640px;
     display: flex;
     align-items: flex-end;
     box-sizing: border-box;
-    padding: 0 2%;
+    padding: 180px 2% 72px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background-color: #ffffff;
+    cursor: crosshair;
+    touch-action: pan-y;
+}
+
+.intro-section.intro-custom-cursor {
+    cursor: none;
+}
+
+.intro-sketch {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    mix-blend-mode: exclusion;
+    pointer-events: auto;
+    touch-action: pan-y;
+}
+
+.intro-sketch canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    touch-action: pan-y;
+}
+
+.intro-vertices {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.intro-vertex {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: #ffff00;
+    transform: translate(-50%, -50%);
+}
+
+.intro-click-cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    box-sizing: border-box;
+    background-color: #0000ff;
+    color: #ffffff;
+    font-family: 'ARIAL NARROW', Arial, sans-serif;
+    font-size: 1.3em;
+    line-height: 1;
+    opacity: 0;
+    padding: 0.05em 0.24em 0.08em;
+    pointer-events: none;
+    transform: translate(-999px, -999px);
+    white-space: nowrap;
+}
+
+.intro-click-cursor.is-visible {
+    opacity: 1;
+}
+
+.intro-click-cursor.is-drawing {
+    width: 20px;
+    height: 12px;
+    color: transparent;
+    font-size: 0;
+    padding: 0;
 }
 
 .intro-text {
@@ -163,6 +236,9 @@ a {
     font-size: 2.65em;
     line-height: 1.05em;
     letter-spacing: 0;
+    position: relative;
+    z-index: 1;
+    user-select: none;
 }
 
 .project-filter {
@@ -312,6 +388,20 @@ img.passeport {
 
 }
 
+.of-curves-page .two-up-gallery {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.of-curves-page .two-up-gallery br {
+    display: none;
+}
+
+.of-curves-page .two-up-gallery .proj-img {
+    display: block;
+}
+
 .proj-vid {
     width: 100%;
     /* height: 100%; */
@@ -398,7 +488,7 @@ a[class=internal]:after {
 
 .arenaimgs {
     width: auto;
-    height: 45vh;
+    height: 68vh;
     max-height: 100%;
     display: flex;
     object-fit: contain;
@@ -419,7 +509,7 @@ a[class=internal]:after {
 }
 
 .homepage-carousel {
-    height: 50vh;
+    height: 72vh;
     width: 100vw;
 }
 
@@ -492,6 +582,12 @@ iframe {
 #parent .img__container::-webkit-scrollbar,
 .homepage-carousel .img__container::-webkit-scrollbar {
     display: none;
+}
+
+.homepage-carousel,
+.homepage-carousel .img__container,
+.homepage-carousel .arenaimgs {
+    cursor: url("./lr-cursor-1.png") 14 9, ew-resize;
 }
 
 .carousel-arrow {
@@ -573,8 +669,23 @@ iframe.web {
     }
 
     .intro-section {
+        margin-top: 70%;
         min-height: 520px;
         padding: 0 2%;
+        cursor: auto;
+    }
+
+    .intro-section.intro-custom-cursor {
+        cursor: auto;
+    }
+
+    .intro-sketch {
+        display: none;
+    }
+
+    .intro-vertices,
+    .intro-click-cursor {
+        display: none;
     }
 
     .intro-text {
@@ -643,7 +754,7 @@ iframe.web {
 
     .arenaimgs {
         width: auto;
-        height: 32vh;
+        height: 46vh;
         max-height: 100%;
         display: flex;
         object-fit: contain;
@@ -682,7 +793,7 @@ iframe.web {
 
     .homepage-carousel {
         width: 98vw;
-        height: 36vh;
+        height: 50vh;
         margin: 1%;
     }
 
@@ -767,6 +878,7 @@ iframe.web {
 }
 
 @media only screen and (max-width: 780px) {
+
     html.mobile-menu-open,
     html.mobile-menu-open body {
         overflow: hidden;

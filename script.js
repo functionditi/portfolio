@@ -295,11 +295,164 @@ const initMobileMenu = () => {
   });
 };
 
+const initIntroSketch = () => {
+  const section = document.querySelector(".intro-section");
+  const mount = section?.querySelector(".intro-sketch");
+  const mobileQuery = window.matchMedia("(max-width: 780px)");
+
+  if (!section || !mount || mount.dataset.sketchReady === "true") return;
+  if (mobileQuery.matches) return;
+  if (typeof window.p5 !== "function") return;
+
+  mount.dataset.sketchReady = "true";
+
+  const vertices = [];
+  const polygonColor = "#ffff00";
+  const vertexColor = "#ffff00";
+
+  const vertexLayer = document.createElement("div");
+  vertexLayer.className = "intro-vertices";
+  section.appendChild(vertexLayer);
+
+  const cursorHint = document.createElement("div");
+  cursorHint.className = "intro-click-cursor";
+  cursorHint.textContent = "click!";
+  section.classList.add("intro-custom-cursor");
+  section.appendChild(cursorHint);
+
+  new window.p5((p) => {
+    let hasClicked = false;
+
+    const canvasSize = () => ({
+      width: Math.max(1, mount.clientWidth),
+      height: Math.max(1, mount.clientHeight),
+    });
+
+    const eventPoint = (event) => {
+      const rect = mount.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      return {
+        x,
+        y,
+        ratioX: x / Math.max(1, rect.width),
+        ratioY: y / Math.max(1, rect.height),
+      };
+    };
+
+    const pointFromVertex = (vertex) => ({
+      x: vertex.ratioX * p.width,
+      y: vertex.ratioY * p.height,
+    });
+
+    const redrawVertices = (points) => {
+      vertexLayer.replaceChildren();
+      points.forEach((point) => {
+        const vertex = document.createElement("span");
+        vertex.className = "intro-vertex";
+        vertex.style.left = `${point.x}px`;
+        vertex.style.top = `${point.y}px`;
+        vertex.style.backgroundColor = vertexColor;
+        vertexLayer.appendChild(vertex);
+      });
+    };
+
+    const redrawPolygon = () => {
+      const { width, height } = canvasSize();
+      const points = vertices.map(pointFromVertex);
+
+      p.clear();
+      redrawVertices(points);
+
+      if (points.length < 3) return;
+
+      p.noStroke();
+      p.fill(polygonColor);
+      p.beginShape();
+      points.forEach((point) => {
+        p.vertex(point.x, point.y);
+      });
+      p.endShape(p.CLOSE);
+    };
+
+    const addVertex = (event) => {
+      const point = eventPoint(event);
+      const { width, height } = canvasSize();
+
+      if (point.x < 0 || point.y < 0 || point.x > width || point.y > height) {
+        return;
+      }
+
+      vertices.push({
+        ratioX: point.ratioX,
+        ratioY: point.ratioY,
+      });
+      redrawPolygon();
+    };
+
+    const moveCursorHint = (event) => {
+      const rect = section.getBoundingClientRect();
+      const x = event.clientX - rect.left + (hasClicked ? -10 : 14);
+      const y = event.clientY - rect.top + (hasClicked ? -6 : 14);
+
+      cursorHint.style.transform = `translate(${x}px, ${y}px)`;
+      cursorHint.classList.add("is-visible");
+    };
+
+    const hideCursorHint = () => {
+      cursorHint.classList.remove("is-visible");
+    };
+
+    const setDrawingCursor = (event) => {
+      hasClicked = true;
+      cursorHint.textContent = "";
+      cursorHint.classList.add("is-drawing");
+      moveCursorHint(event);
+    };
+
+    const handlePointerDown = (event) => {
+      if (event.button !== 0) return;
+
+      if (event.pointerType === "mouse") {
+        event.preventDefault();
+      }
+
+      if (!hasClicked) {
+        setDrawingCursor(event);
+      }
+
+      addVertex(event);
+    };
+
+    p.setup = () => {
+      const { width, height } = canvasSize();
+      const canvas = p.createCanvas(width, height);
+      canvas.parent(mount);
+      canvas.elt.setAttribute("aria-hidden", "true");
+      p.pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
+      p.noLoop();
+      p.clear();
+
+      mount.addEventListener("pointermove", moveCursorHint);
+      mount.addEventListener("pointerleave", hideCursorHint);
+      mount.addEventListener("pointerdown", handlePointerDown);
+    };
+
+    p.windowResized = () => {
+      const { width, height } = canvasSize();
+      p.resizeCanvas(width, height);
+      redrawPolygon();
+    };
+  }, mount);
+};
+
 const initPage = () => {
   initCarousels();
   const archiveController = initArchiveToggle();
   initProjectFilter(archiveController);
   initMobileMenu();
+  initIntroSketch();
 };
 
 if (document.readyState === "loading") {
